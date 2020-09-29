@@ -17,7 +17,8 @@
       "components": ["./components"],
       "containers": ["./containers"],
       "config": ["./config"],
-      "helpers": ["./helpers"]
+      "helpers": ["./helpers"],
+      "store": ["./store"]
     },
   }
 }

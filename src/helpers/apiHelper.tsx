@@ -1,7 +1,6 @@
 
 import { BASE_URL } from "config";
 
-
 /**
  * API Helper the project
  */
@@ -28,10 +27,6 @@ class ApiHelper {
             return { success: false, data: error };
         }
     };
-
-
-
-
 }
 
 const APIHelper = new ApiHelper();
