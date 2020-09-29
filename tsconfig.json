@@ -16,6 +16,8 @@
       "screens": ["./screens"],
       "components": ["./components"],
       "containers": ["./containers"],
+      "config": ["./config"],
+      "helpers": ["./helpers"]
     },
   }
 }

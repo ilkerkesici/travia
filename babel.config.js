@@ -20,6 +20,8 @@ module.exports = {
           screens: './src/screens',
           components: './src/components',
           containers: './src/containers',
+          config: './src/config',
+          helpers: './src/helpers'
         },
       },
     ],
