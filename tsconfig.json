@@ -18,7 +18,8 @@
       "containers": ["./containers"],
       "config": ["./config"],
       "helpers": ["./helpers"],
-      "store": ["./store"]
+      "store": ["./store"],
+      "assets": ["./assets"]
     },
   }
 }

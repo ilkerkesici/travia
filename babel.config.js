@@ -22,7 +22,8 @@ module.exports = {
           containers: './src/containers',
           config: './src/config',
           helpers: './src/helpers',
-          store: './src/store'
+          store: './src/store',
+          assets: './src/assets'
         },
       },
     ],

@@ -8,7 +8,6 @@ import store from 'store';
  */
 export const initialize = async () => {
     const fetchResult = await fetchGameCategories();
-    
     setTimeout(() => {
         Actions.main();
     }, 200);
