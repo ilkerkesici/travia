@@ -1,18 +1,15 @@
 import React from 'react';
 import {
-  SafeAreaView,
-  Text,
   StatusBar,
 } from 'react-native';
+import { Router } from 'containers';
 
 
 const App = () => {
   return (
     <>
       <StatusBar barStyle='dark-content' />
-      <SafeAreaView>
-        <Text> My custom application creator! </Text>
-      </SafeAreaView>
+      <Router />
     </>
   );
 };

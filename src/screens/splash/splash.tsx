@@ -1,17 +1,21 @@
-  
-import React, { useState } from 'react';
+
+import React, { useEffect } from 'react';
 import { View, Text } from 'react-native';
 import { styles } from './splash.styles';
+import { initialize } from './splash.helper';
 
-interface IsplashState{ }
-interface IsplashProps{ }
+
+interface IsplashProps { }
 
 export const Splash = (props: IsplashProps) => {
-    const [state, setState] = useState<IsplashState>({ });
+    useEffect(() => {
+        initialize();
+    }, [])
+
 
     return (
         <View style={styles.container}>
-            
+            <Text>Splash</Text>
         </View>
     );
 }

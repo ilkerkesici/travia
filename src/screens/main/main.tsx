@@ -11,7 +11,7 @@ export const Main = (props: ImainProps) => {
 
     return (
         <View style={styles.container}>
-            
+            <Text>Main</Text>
         </View>
     );
 }

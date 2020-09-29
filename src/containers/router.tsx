@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Stack, Scene } from 'react-native-router-flux';
-import { Splash, Main, Game } from '../screens';
+import { Splash, Main, Game } from 'screens';
 
 const RouterComponent = () => {
     return (
