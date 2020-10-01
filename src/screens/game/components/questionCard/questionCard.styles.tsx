@@ -17,6 +17,12 @@ const styles = StyleSheet.create({
     question: {
         fontWeight: 'bold',
         fontSize: 18,
+    },
+    normalButton: {
+        backgroundColor: colors.white
+    },
+    successStyle: {
+        backgroundColor: colors.success
     }
 })
 

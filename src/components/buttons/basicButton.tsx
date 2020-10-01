@@ -10,7 +10,8 @@ interface IBasicButton {
     onPress?: () => void,
     disabled?: boolean,
     title: string,
-    style?: ViewStyle
+    style?: ViewStyle,
+    textColor?: ColorValue 
 }
 
 /**
@@ -18,7 +19,7 @@ interface IBasicButton {
  * @param props : IBasicButton
  */
 const BasicButton = (props: IBasicButton) => {
-    const { loading, disabled, onPress, title, style } = props;
+    const { loading, disabled, onPress, title, style, textColor } = props;
     const onPressButton = useCallback((): void => {
         onPress && Utils.isFunction(onPress) && onPress();
     }, [onPress])
@@ -35,7 +36,7 @@ const BasicButton = (props: IBasicButton) => {
             {
                 loading ?
                     <Spinner size={"small"} /> :
-                    <Text style={[disabled ? styles.disableTitle : styles.activeTitle]}>{title}</Text>
+                    <Text style={[disabled ? styles.disableTitle : styles.activeTitle, textColor ? {color: textColor} : null]}>{title}</Text>
             }
         </TouchableOpacity>
     );

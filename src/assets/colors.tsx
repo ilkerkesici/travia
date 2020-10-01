@@ -7,7 +7,8 @@ const colors = {
     blackOpacity: 'rgba(0,0,0,0.5)',
     secondary: '#283593',
     secondaryLight: '#5f5fc4',
-    secondaryDark: '#001064'
+    secondaryDark: '#001064',
+    success: '#4BB543'
 }
 
 export default colors;

@@ -25,7 +25,7 @@ const ModalPicker = (props: IModalPickerProps) => {
         <Modal
             visible={visible}
             transparent={true}
-            animationType={"slide"}
+            animationType={"fade"}
         >
             <View style={styles.container}>
                 <View style={styles.card}>
