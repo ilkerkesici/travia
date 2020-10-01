@@ -3,9 +3,10 @@ import React, { useCallback, useState } from 'react';
 import { Text } from 'react-native';
 import { styles } from './main.styles';
 import { ScreenContainer, BasicButton, ModalPicker } from 'components';
-import { strings } from 'assets';
+import { strings as locale } from 'assets';
 import { getDifficultyData, getCategoriesAsListItem } from './main.helper';
 import { IListItem } from 'enums';
+import { Actions } from 'react-native-router-flux';
 
 interface IMainState {
     diffuculty: IListItem,
@@ -51,12 +52,22 @@ export const Main = () => {
         setState({ ...state, difficultyModalVisible: false, diffuculty: selectedDifficulty });
     }, [state, setState]);
 
+    /**
+     * Run on press start button and go to game with parameters
+     */
+    const onPressStart = useCallback(() => {
+        const { diffuculty, category } = state;
+        Actions.game({ diffuculty, category });
+    }, [state])
+
+    const strings = locale.main;
     const { diffuculty, category, categoryModalVisible, difficultyModalVisible } = state;
     return (
         <ScreenContainer style={styles.container}>
-            <Text style={{ color: 'black', fontSize: 20 }}>Main</Text>
+            <Text style={styles.title}>{strings.welcome}</Text>
             <BasicButton title={diffuculty.value} onPress={() => setState({ ...state, difficultyModalVisible: true })} />
             <BasicButton title={category.value} onPress={() => setState({ ...state, categoryModalVisible: true })} />
+            <BasicButton title={strings.start} onPress={onPressStart} style={styles.startButton} />
             <ModalPicker onSelect={onSelectDifficulty} visible={difficultyModalVisible} data={difficulties} />
             <ModalPicker onSelect={onSelectCategory} visible={categoryModalVisible} data={categories} />
         </ScreenContainer>

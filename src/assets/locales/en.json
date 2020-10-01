@@ -5,6 +5,8 @@
         "hard": "Hard",
         "medium": "Medium",
         "anyCategory": "Any Category",
-        "anyDifficulty": "Any Difficulty"
+        "anyDifficulty": "Any Difficulty",
+        "welcome": "Welcome to Travia Game",
+        "start": "Start"
     }
 }

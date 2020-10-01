@@ -6,5 +6,16 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    title: {
+        fontSize: 26,
+        fontFamily: 'arial',
+        fontWeight: 'bold',
+        color: colors.secondary,
+        marginBottom: 40
+    },
+    startButton: {
+        backgroundColor: colors.secondary,
+        marginTop: 30
+    }
 });
 

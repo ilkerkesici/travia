@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Text, TouchableOpacity, ViewStyle } from 'react-native';
+import { ColorValue, Text, TouchableOpacity, ViewStyle } from 'react-native';
 import Spinner from '../spinner';
 import styles from './basicButton.styles';
 import { colors } from 'assets';
@@ -22,10 +22,14 @@ const BasicButton = (props: IBasicButton) => {
     const onPressButton = useCallback((): void => {
         onPress && Utils.isFunction(onPress) && onPress();
     }, [onPress])
+
+    let color: ColorValue = colors.primary;
+    if(disabled) color = colors.lightGray;
+    else if(style && style.backgroundColor) color = style.backgroundColor;
     return (
         <TouchableOpacity
             onPress={onPressButton}
-            style={[style, styles.container, { backgroundColor: disabled ? colors.lightGray : colors.primary }]}
+            style={[style, styles.container, { backgroundColor: color }]}
             activeOpacity={disabled ? 0 : 0.5}
         >
             {
