@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, ViewStyle } from 'react-native';
 import Spinner from '../spinner';
 import styles from './basicButton.styles';
 import { colors } from 'assets';
+import { Utils } from 'helpers';
 
 interface IBasicButton {
     loading?: boolean
@@ -19,8 +20,8 @@ interface IBasicButton {
 const BasicButton = (props: IBasicButton) => {
     const { loading, disabled, onPress, title, style } = props;
     const onPressButton = useCallback((): void => {
-        // TODO
-    }, [])
+        onPress && Utils.isFunction(onPress) && onPress();
+    }, [onPress])
     return (
         <TouchableOpacity
             onPress={onPressButton}

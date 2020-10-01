@@ -1,3 +1,3 @@
 import ApiHelper from './apiHelper';
-
-export { ApiHelper };
+import Utils from './utils';
+export { ApiHelper, Utils };
