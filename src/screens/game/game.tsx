@@ -1,11 +1,12 @@
 
-import { IListItem, IQuestion, IRenderItem } from 'enums';
-import React, { useCallback, useEffect, useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { IQuestion } from 'enums';
+import React, { useState } from 'react';
+import { } from 'react-native';
 import { styles } from './game.styles';
 import { configureAnswers } from './game.helper';
 import { ScreenContainer } from 'components';
 import { strings as locale } from 'assets';
+import { QuestiınCard } from './components';
 
 interface IgameState {
     
@@ -31,13 +32,10 @@ export const Game = (props: IgameProps) => {
 
     const { index } = gameState;
     const currentQuestion = questions[index];
-    const answers = configureAnswers(currentQuestion);
+    
     return (
         <ScreenContainer style={styles.container}>
-            <View style={styles.questionCard}>
-                <Text style={styles.question}>{currentQuestion.question}</Text>
-            </View>
-            
+            <QuestiınCard questionInfo={currentQuestion} />
         </ScreenContainer>
     );
 }
