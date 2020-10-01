@@ -2,18 +2,13 @@ import React, { useCallback } from 'react';
 import { FlatList, Modal, View } from 'react-native';
 import styles from './modalPicker.styles';
 import ListItem from '../listItem';
-import { IListItem as IList } from 'enums';
+import { IListItem as IList, IRenderItem } from 'enums';
 
 
 interface IModalPickerProps {
     data: IList[],
     visible: boolean,
     onSelect: (item: IList) => void
-}
-
-interface IRenderItem {
-    item: IList,
-    index: number
 }
 
 

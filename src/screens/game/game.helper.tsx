@@ -1,6 +1,6 @@
 import { QUESTION_AMOUNT } from "config";
 import { IListItem, EDifficulty, ANY_CATEGORY_TYPE_ID, IQuestion } from "enums";
-import { ApiHelper } from 'helpers';
+import { ApiHelper, Utils } from 'helpers';
 
 /**
  * Get the questions from API
@@ -14,4 +14,15 @@ export const getQuestions = async (difficulty: IListItem, category: IListItem): 
     const response = await ApiHelper.getRequest(endpoint);
     if(response.success && response.data.results) return response.data.results;
     return [];
+}
+
+/**
+ * Configure the array question shuffle it
+ * @param question is a question
+ */
+export const configureAnswers = (question: IQuestion) => {
+    const incorrenctAnswers = question.incorrect_answers;
+    incorrenctAnswers.push(question.correct_answer);
+    const shuffledAnswers = Utils.shufflearray(incorrenctAnswers);
+    return shuffledAnswers;
 }

@@ -25,6 +25,11 @@ export interface IQuestion {
     incorrect_answers: string[],
 }
 
+export interface IRenderItem {
+    item: IListItem,
+    index: number
+}
+
 /**
  * There is no id for any type category
  * so I create custom id for any type to check

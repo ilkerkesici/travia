@@ -8,5 +8,8 @@
         "anyDifficulty": "Any Difficulty",
         "welcome": "Welcome to Travia Game",
         "start": "Start"
+    },
+    "game": {
+        "error" :"Upsss! Some things went wrong!"
     }
 }
