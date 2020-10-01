@@ -10,6 +10,11 @@
         "start": "Start"
     },
     "game": {
-        "error" :"Upsss! Some things went wrong!"
+        
+    },
+    "info": {
+        "error": "Upsss! Some things went wrong!",
+        "info": "Your questions were ready!",
+        "start": "Start"
     }
 }

@@ -57,7 +57,7 @@ export const Main = () => {
      */
     const onPressStart = useCallback(() => {
         const { difficulty, category } = state;
-        Actions.game({ difficulty, category });
+        Actions.info({ difficulty, category });
     }, [state])
 
     const strings = locale.main;
