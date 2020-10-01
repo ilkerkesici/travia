@@ -21,7 +21,10 @@ module.exports = {
           components: './src/components',
           containers: './src/containers',
           config: './src/config',
-          helpers: './src/helpers'
+          helpers: './src/helpers',
+          store: './src/store',
+          assets: './src/assets',
+          enums: './src/enums'
         },
       },
     ],
