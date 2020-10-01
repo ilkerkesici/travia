@@ -1,19 +1,28 @@
+import { ANY_CATEGORY_TYPE_ID } from 'enums';
+import { strings } from 'assets';
+
+interface ICategory {
+    id: number,
+    name: string
+}
+
 /**
  * Use for store some glabal datas
  */
 class AppStore {
-    private catagories: string[];
+    private catagories: ICategory[];
 
     constructor() {
-        this.catagories = [];
+        this.catagories = [{id: ANY_CATEGORY_TYPE_ID, name: strings.main.anyCategory}];
     }
 
     /**
      * Set the categories (call when app started)
      * @param newCatagories categories for the game
      */
-    setCatagories(newCatagories: string[]) {
-        this.catagories = newCatagories;
+    setCatagories(newCatagories: ICategory[]) {
+        const newArray: ICategory[] = [{id: ANY_CATEGORY_TYPE_ID, name: strings.main.anyCategory}];
+        this.catagories = newArray.concat(newCatagories);
     }
 
     /**

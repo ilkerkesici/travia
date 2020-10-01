@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, ViewStyle } from 'react-native';
 import Spinner from '../spinner';
 import styles from './basicButton.styles';
 import { colors } from 'assets';
-import { Utils } from 'helpers';
+import { Utils } from 'helpers';
 
 interface IBasicButton {
     loading?: boolean

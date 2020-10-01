@@ -9,7 +9,7 @@ import { colors } from 'assets';
 const Spinner = (props: ISpinner) => {
     return (
         <View style={props.style} >
-            <ActivityIndicator color={props.color || colors.primary} size={props.size || 'large'} />
+            <ActivityIndicator color={props.color || colors.white} size={props.size || 'large'} />
         </View>
     );
 }

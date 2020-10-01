@@ -19,7 +19,8 @@
       "config": ["./config"],
       "helpers": ["./helpers"],
       "store": ["./store"],
-      "assets": ["./assets"]
+      "assets": ["./assets"],
+      "enums": ["./enums"]
     },
   }
 }

@@ -1,3 +1,4 @@
 import colors from './colors';
+import strings from './strings';
 
-export { colors };
+export { colors, strings };

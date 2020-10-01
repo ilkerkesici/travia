@@ -1,0 +1,10 @@
+{
+    "title": "English",
+    "main": {
+        "easy": "Easy",
+        "hard": "Hard",
+        "medium": "Medium",
+        "anyCategory": "Any Category",
+        "anyDifficulty": "Any Difficulty"
+    }
+}

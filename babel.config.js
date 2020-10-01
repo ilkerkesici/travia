@@ -23,7 +23,8 @@ module.exports = {
           config: './src/config',
           helpers: './src/helpers',
           store: './src/store',
-          assets: './src/assets'
+          assets: './src/assets',
+          enums: './src/enums'
         },
       },
     ],
