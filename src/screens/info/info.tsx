@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import { styles } from './info.styles';
 import { IListItem, IQuestion } from 'enums';
 import { getQuestions } from './info.helper';
-import { strings as locale } from 'assets';
+import { colors, strings as locale } from 'assets';
 import { BasicButton, ScreenContainer, Spinner } from 'components';
 import { Actions } from 'react-native-router-flux';
 
@@ -44,7 +44,7 @@ export const Info = (props: IinfoProps) => {
     if (loading)
         return (
             <ScreenContainer style={styles.container}>
-                <Spinner size={"large"} />
+                <Spinner color={colors.primary} size={"large"} />
             </ScreenContainer>
         );
     else if(error){
