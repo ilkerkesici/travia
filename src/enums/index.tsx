@@ -16,6 +16,15 @@ export interface IListItem {
     value: string
 }
 
+export interface IQuestion {
+    question: string,
+    type: string,
+    difficulty: string,
+    category: string,
+    correct_answer: string,
+    incorrect_answers: string[],
+}
+
 /**
  * There is no id for any type category
  * so I create custom id for any type to check

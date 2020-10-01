@@ -9,7 +9,7 @@ import { IListItem } from 'enums';
 import { Actions } from 'react-native-router-flux';
 
 interface IMainState {
-    diffuculty: IListItem,
+    difficulty: IListItem,
     category: IListItem,
     difficultyModalVisible: boolean,
     categoryModalVisible: boolean
@@ -30,7 +30,7 @@ export const Main = () => {
     const { difficulties, categories } = datas;
 
     const [state, setState] = useState<IMainState>({
-        diffuculty: difficulties[0],
+        difficulty: difficulties[0],
         category: categories[0],
         difficultyModalVisible: false,
         categoryModalVisible: false,
@@ -49,23 +49,23 @@ export const Main = () => {
      * @param selectedDifficulty is selected difficulty
      */
     const onSelectDifficulty = useCallback((selectedDifficulty: IListItem) => {
-        setState({ ...state, difficultyModalVisible: false, diffuculty: selectedDifficulty });
+        setState({ ...state, difficultyModalVisible: false, difficulty: selectedDifficulty });
     }, [state, setState]);
 
     /**
      * Run on press start button and go to game with parameters
      */
     const onPressStart = useCallback(() => {
-        const { diffuculty, category } = state;
-        Actions.game({ diffuculty, category });
+        const { difficulty, category } = state;
+        Actions.game({ difficulty, category });
     }, [state])
 
     const strings = locale.main;
-    const { diffuculty, category, categoryModalVisible, difficultyModalVisible } = state;
+    const { difficulty, category, categoryModalVisible, difficultyModalVisible } = state;
     return (
         <ScreenContainer style={styles.container}>
             <Text style={styles.title}>{strings.welcome}</Text>
-            <BasicButton title={diffuculty.value} onPress={() => setState({ ...state, difficultyModalVisible: true })} />
+            <BasicButton title={difficulty.value} onPress={() => setState({ ...state, difficultyModalVisible: true })} />
             <BasicButton title={category.value} onPress={() => setState({ ...state, categoryModalVisible: true })} />
             <BasicButton title={strings.start} onPress={onPressStart} style={styles.startButton} />
             <ModalPicker onSelect={onSelectDifficulty} visible={difficultyModalVisible} data={difficulties} />
