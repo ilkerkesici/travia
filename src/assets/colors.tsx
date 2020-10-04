@@ -8,7 +8,8 @@ const colors = {
     secondary: '#283593',
     secondaryLight: '#5f5fc4',
     secondaryDark: '#001064',
-    success: '#4BB543'
+    success: '#4BB543',
+    danger: '#bb2124'
 }
 
 export default colors;

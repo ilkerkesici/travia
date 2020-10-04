@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
     },
     successStyle: {
         backgroundColor: colors.success
+    },
+    wrongStyle: {
+        backgroundColor: colors.danger
     }
 })
 

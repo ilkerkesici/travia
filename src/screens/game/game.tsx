@@ -33,9 +33,10 @@ export const Game = (props: IgameProps) => {
     const { index } = gameState;
     const currentQuestion = questions[index];
     
+    const shuffeledCurrentQuestions = configureAnswers(currentQuestion);
     return (
         <ScreenContainer style={styles.container}>
-            <QuestiınCard questionInfo={currentQuestion} />
+            <QuestiınCard answers={shuffeledCurrentQuestions} questionInfo={currentQuestion} />
         </ScreenContainer>
     );
 }

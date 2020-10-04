@@ -7,7 +7,8 @@ import { configureAnswers } from 'screens/game/game.helper';
 import styles from './questionCard.styles';
 
 interface IQuestionCard {
-    questionInfo: IQuestion
+    questionInfo: IQuestion,
+    answers: string[]
 }
 
 interface IRenderItem {
@@ -16,8 +17,8 @@ interface IRenderItem {
 }
 
 const QuestionCard = (props: IQuestionCard) => {
-    const { questionInfo } = props;
-    const answers = configureAnswers(questionInfo);
+    const { questionInfo, answers } = props;
+    const [answer, setAnswer] = useState<string | null>(null);
 
     const [extraStyles, setExtraStyles] = useState({
         button: styles.normalButton,
@@ -26,21 +27,32 @@ const QuestionCard = (props: IQuestionCard) => {
         answer: ""
     })
 
-    const onPressAnswer = useCallback((answer :string) => {
-        if(questionInfo.correct_answer === answer){ // The answer is correnct
+    const onPressAnswer = useCallback((selectedAnswer :string) => {
+        if(answer) return;
+        setAnswer(selectedAnswer);
+        if(questionInfo.correct_answer === selectedAnswer){ // The answer is correnct
 
         }
         
-    }, []);
+    }, [setAnswer, answer]);
 
     const renderItem = useCallback((renderProps: IRenderItem) => {
         const { item } = renderProps;
-        const { button, textColor } = extraStyles;
-        // TODO
+        let textColor =  colors.black;
+        let buttonStyle = styles.normalButton;
+        if(answer && item === questionInfo.correct_answer){
+            buttonStyle = styles.successStyle;
+            textColor = colors.white;
+        
+        } else if(answer && answer === item){
+            buttonStyle= styles.wrongStyle;
+            textColor = colors.white;
+        }
+            
         return(
-            <BasicButton textColor={textColor} style={button} title={item} onPress={() => onPressAnswer(item)} />
+            <BasicButton textColor={textColor} style={buttonStyle} title={item} onPress={() => onPressAnswer(item)} />
         );
-    }, [onPressAnswer, extraStyles])
+    }, [onPressAnswer, extraStyles, answer, questionInfo])
 
     const keyExtractor = useCallback((item: string, index: number) => item, []);
 
