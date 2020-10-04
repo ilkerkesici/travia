@@ -10,7 +10,15 @@
         "start": "Start"
     },
     "game": {
-        
+        "timeout": "TIME'S UP",
+        "correct": "CORRECT",
+        "wrong": "FAIL",
+        "total" : "Total",
+        "timeoutDesc": "You are late, time's up.",
+        "wrongDesc": "You fail",
+        "correnctDesc" :"Great! You knew.",
+        "mainMenu": "MAIN MENU",
+        "next": "NEXT"
     },
     "info": {
         "error": "Upsss! Some things went wrong!",

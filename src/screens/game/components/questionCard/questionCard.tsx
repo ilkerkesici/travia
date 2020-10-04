@@ -8,7 +8,9 @@ import styles from './questionCard.styles';
 
 interface IQuestionCard {
     questionInfo: IQuestion,
-    answers: string[]
+    answers: string[],
+    onCorrect: (score: number) => void,
+    onWrong: () => void
 }
 
 interface IRenderItem {
@@ -17,7 +19,7 @@ interface IRenderItem {
 }
 
 const QuestionCard = (props: IQuestionCard) => {
-    const { questionInfo, answers } = props;
+    const { questionInfo, answers, onCorrect, onWrong } = props;
     const [answer, setAnswer] = useState<string | null>(null);
 
     const [extraStyles, setExtraStyles] = useState({
@@ -31,10 +33,12 @@ const QuestionCard = (props: IQuestionCard) => {
         if(answer) return;
         setAnswer(selectedAnswer);
         if(questionInfo.correct_answer === selectedAnswer){ // The answer is correnct
-
+            onCorrect(100);
+            return;
         }
-        
-    }, [setAnswer, answer]);
+        onWrong();
+        setTimeout(() => setAnswer(null), 500);
+    }, [setAnswer, answer, onCorrect, onWrong]);
 
     const renderItem = useCallback((renderProps: IRenderItem) => {
         const { item } = renderProps;

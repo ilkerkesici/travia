@@ -35,3 +35,12 @@ export interface IRenderItem {
  * so I create custom id for any type to check
  */
 export const ANY_CATEGORY_TYPE_ID = -1;
+
+/**
+ * Game question status type
+ */
+export enum EStatus {
+    Wrong = 'wrong',
+    Success = 'success',
+    Timeout = 'timeout'
+}

@@ -21,6 +21,10 @@ class Timer extends Component<ITimer> {
         time: 0, // second
     };
 
+    getCurrentTime = (): number => {
+        return this.state.time;
+    }
+
     /**
      * Start the tiemr
      */
