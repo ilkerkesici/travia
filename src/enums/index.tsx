@@ -45,3 +45,12 @@ export enum EStatus {
     Timeout = 'timeout',
     Finish = 'finish'
 }
+
+/**
+ * Store score interface (use in storage helper and score board screen)
+ */
+export interface ISavedScore {
+    date: Date,
+    score: number,
+    timespent: number
+}

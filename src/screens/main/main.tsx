@@ -1,6 +1,6 @@
 
 import React, { useCallback, useState } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { styles } from './main.styles';
 import { ScreenContainer, BasicButton, ModalPicker } from 'components';
 import { strings as locale } from 'assets';
@@ -68,6 +68,9 @@ export const Main = () => {
             <BasicButton title={difficulty.value} onPress={() => setState({ ...state, difficultyModalVisible: true })} />
             <BasicButton title={category.value} onPress={() => setState({ ...state, categoryModalVisible: true })} />
             <BasicButton title={strings.start} onPress={onPressStart} style={styles.startButton} />
+            <View style={styles.scoreBoardContainer}>
+                <Text onPress={() => Actions.scoreBoard()} style={styles.scoreBoardButton}>{strings.goToScoreBoard}</Text>
+            </View>
             <ModalPicker onSelect={onSelectDifficulty} visible={difficultyModalVisible} data={difficulties} />
             <ModalPicker onSelect={onSelectCategory} visible={categoryModalVisible} data={categories} />
         </ScreenContainer>

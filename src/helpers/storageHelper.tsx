@@ -1,10 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage';
-
-interface ISavedScore {
-    date: Date,
-    score: number,
-    timespent: number
-}
+import { ISavedScore } from 'enums';
 
 /**
  * Helper for local storage with AsyncStorage

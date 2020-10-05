@@ -16,6 +16,17 @@ export const styles = StyleSheet.create({
     startButton: {
         backgroundColor: colors.secondary,
         marginTop: 30
+    },
+    scoreBoardContainer:{
+        alignSelf: 'stretch',
+        alignItems: 'flex-end',
+        marginTop: 50
+    },
+    scoreBoardButton: {
+        color: colors.secondaryDark,
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginRight: 20
     }
 });
 
