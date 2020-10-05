@@ -12,11 +12,10 @@ const ListItem = (props: IListItemProps) => {
     const { data } = props;
     let difficultyColor = colors.primary;
     const strings = loacale.scoreBoard;
-    switch (data.difficulty.key) {
-        case EDifficulty.Easy: difficultyColor = colors.success;
-        case EDifficulty.Medium: difficultyColor = colors.warning;
-        case EDifficulty.Hard: difficultyColor = colors.danger;
-    }
+    const key = data.difficulty.key;
+    if(key === EDifficulty.Easy) difficultyColor = colors.success;
+    else if(key === EDifficulty.Medium) difficultyColor = colors.warning;
+    else if(key === EDifficulty.Hard) difficultyColor = colors.danger;
     return (
         <View style={styles.container}>
             <View style={styles.body}>

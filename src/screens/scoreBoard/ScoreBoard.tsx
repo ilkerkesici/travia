@@ -33,6 +33,8 @@ const ScoreBoard = () => {
         if(!state.loading)
             setState({...state, loading: true});
         const scores = await LocalStorageHelper.getScores();
+        scores?.sort((a:ISavedScore, b: ISavedScore) => b.score - a.score);
+        console.log(scores);
         setState({loading: false, scores: scores});
     }, [state, setState]);
 
@@ -48,7 +50,7 @@ const ScoreBoard = () => {
     useEffect(() => {
         getScores();
     }, []);
-    
+
     const { loading, scores } = state;
     return(
         <ScreenContainer>
