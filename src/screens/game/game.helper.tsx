@@ -8,8 +8,8 @@ import { Utils } from "helpers";
  */
 export const configureAnswers = (question: IQuestion): string[] => {
     const incorrenctAnswers = question.incorrect_answers;
-    incorrenctAnswers.push(question.correct_answer);
-    const shuffledAnswers = Utils.shufflearray(incorrenctAnswers);
+    const all = incorrenctAnswers.concat([question.correct_answer]);
+    const shuffledAnswers = Utils.shufflearray(all);
     return shuffledAnswers;
 }
 

@@ -34,9 +34,8 @@ const QuestionCard = (props: IQuestionCard) => {
         setAnswer(selectedAnswer);
         if(questionInfo.correct_answer === selectedAnswer){ // The answer is correnct
             onCorrect(100);
-            return;
-        }
-        onWrong();
+        } else 
+            onWrong();
         setTimeout(() => setAnswer(null), 500);
     }, [setAnswer, answer, onCorrect, onWrong]);
 
@@ -59,7 +58,6 @@ const QuestionCard = (props: IQuestionCard) => {
     }, [onPressAnswer, extraStyles, answer, questionInfo])
 
     const keyExtractor = useCallback((item: string, index: number) => item, []);
-
     return (
         <View>
             <View style={styles.questionCard}>

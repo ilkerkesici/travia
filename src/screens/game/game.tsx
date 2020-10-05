@@ -17,7 +17,9 @@ interface IGameState {
     score: number,
     totalTimeSpent: number,
     statusModalVisible: boolean,
-    status: EStatus
+    status: EStatus,
+    currentQuestion: IQuestion,
+    currentShuffledAnswers: string [],
 }
 
 export const Game = (props: IgameProps) => {
@@ -27,7 +29,9 @@ export const Game = (props: IgameProps) => {
         score: 0,
         totalTimeSpent: 0,
         statusModalVisible: false,
-        status: EStatus.Wrong
+        status: EStatus.Wrong,
+        currentQuestion: questions[0],
+        currentShuffledAnswers: configureAnswers(questions[0])
     });
 
     const timer = useRef<Timer | null>(null);
@@ -69,7 +73,7 @@ export const Game = (props: IgameProps) => {
                 status: EStatus.Wrong, 
                 totalTimeSpent: gameState.totalTimeSpent + timeSpent
             });
-        }, 100);
+        }, 500);
         stopTimer();
     }, [gameState, timer, setGameState, stopTimer])
 
@@ -80,25 +84,26 @@ export const Game = (props: IgameProps) => {
 
     const onPressStatusModal = useCallback((status: EStatus) => {
         if(status === EStatus.Success){
+            const newIndex = gameState.index + 1;
             setGameState({
                 ...gameState, 
                 statusModalVisible: false, 
                 status: EStatus.Success, 
-                index: gameState.index + 1
+                index: newIndex,
+                currentQuestion: questions[newIndex],
+                currentShuffledAnswers: configureAnswers(questions[newIndex])
             });
             startTimer();
             return;
         }
         Actions.main();
         // TODO Save latest data to asyncStorage
-    }, [setGameState, gameState, startTimer]);
+    }, [setGameState, gameState, startTimer, questions]);
 
     useEffect(() => startTimer(),[startTimer]) // did mount
 
-    const { index, score, statusModalVisible, status } = gameState;
-    const currentQuestion = questions[index];
+    const { index, score, statusModalVisible, status, currentQuestion, currentShuffledAnswers } = gameState;
 
-    const shuffeledCurrentQuestions = configureAnswers(currentQuestion);
     const totalQuestion = questions.length;
     return (
         <ScreenContainer style={styles.container}>
@@ -110,7 +115,7 @@ export const Game = (props: IgameProps) => {
                     <Timer ref={timer} onEnd={onTimeIsUp} maxTime={15} />
                 </View>
             </View>
-            <QuestiınCard onWrong={onWrongAnswer} onCorrect={onCorrectAnswer} answers={shuffeledCurrentQuestions} questionInfo={currentQuestion} />
+            <QuestiınCard onWrong={onWrongAnswer} onCorrect={onCorrectAnswer} answers={currentShuffledAnswers} questionInfo={currentQuestion} />
             <StatusModal onPressButton={onPressStatusModal} score={score} status={status} visible={statusModalVisible} />
         </ScreenContainer>
     );
