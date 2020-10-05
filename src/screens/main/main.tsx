@@ -20,7 +20,7 @@ interface IDatas {
     categories: IListItem[]
 }
 
-export const Main = () => {
+const Main = () => {
 
     const [datas] = useState<IDatas>({
         difficulties: getDifficultyData(),
@@ -76,5 +76,7 @@ export const Main = () => {
         </ScreenContainer>
     );
 }
+
+export default Main;
 
 

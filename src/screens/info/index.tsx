@@ -1,1 +1,3 @@
-export * from './info';
+import Info from './info';
+
+export default Info;

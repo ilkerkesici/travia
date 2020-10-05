@@ -24,7 +24,7 @@ interface IGameState {
     currentShuffledAnswers: string [],
 }
 
-export const Game = (props: IgameProps) => {
+const Game = (props: IgameProps) => {
     const [questions] = useState<IQuestion[]>(props.questions);
     const [gameState, setGameState] = useState<IGameState>({
         index: 0,
@@ -126,4 +126,5 @@ export const Game = (props: IgameProps) => {
     );
 }
 
+export default Game;
 

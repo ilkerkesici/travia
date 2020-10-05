@@ -18,7 +18,7 @@ interface IinfoProps{
     category: IListItem
  }
 
-export const Info = (props: IinfoProps) => {
+const Info = (props: IinfoProps) => {
     const strings = locale.info;
     const { difficulty, category } = props;
     const [state, setState] = useState<IInfoState>({ 
@@ -64,3 +64,4 @@ export const Info = (props: IinfoProps) => {
 }
 
 
+export default Info;
