@@ -10,7 +10,6 @@ interface ISavedScore {
  * Helper for local storage with AsyncStorage
  */
 class StorageHelper {
-
     /**
      * Save the user score to local storage
      * @param score is score of the user

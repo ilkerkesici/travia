@@ -7,6 +7,7 @@ import { configureAnswers } from './game.helper';
 import { ScreenContainer, Timer } from 'components';
 import { QuestiınCard, StatusModal } from './components';
 import { Actions } from 'react-native-router-flux';
+import { LocalStorageHelper } from 'helpers';
 
 interface IgameProps {
     questions: IQuestion[]
@@ -96,6 +97,7 @@ export const Game = (props: IgameProps) => {
             startTimer();
             return;
         }
+        LocalStorageHelper.saveScore(gameState.score, gameState.totalTimeSpent);
         Actions.main();
         // TODO Save latest data to asyncStorage
     }, [setGameState, gameState, startTimer, questions]);
