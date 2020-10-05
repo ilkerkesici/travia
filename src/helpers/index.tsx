@@ -1,3 +1,4 @@
 import ApiHelper from './apiHelper';
 import Utils from './utils';
-export { ApiHelper, Utils };
+import LocalStorageHelper from './storageHelper';
+export { ApiHelper, Utils, LocalStorageHelper };
