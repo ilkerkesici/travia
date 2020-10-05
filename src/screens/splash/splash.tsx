@@ -7,7 +7,7 @@ import { initialize } from './splash.helper';
 
 interface IsplashProps { }
 
-export const Splash = (props: IsplashProps) => {
+const Splash = (props: IsplashProps) => {
     useEffect(() => {
         initialize();
     }, [])
@@ -20,4 +20,5 @@ export const Splash = (props: IsplashProps) => {
     );
 }
 
+export default Splash;
 

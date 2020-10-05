@@ -7,7 +7,7 @@ import store from 'store';
  * Redirect required screen
  */
 export const initialize = async () => {
-    const fetchResult = await fetchGameCategories();
+    await fetchGameCategories();
     setTimeout(() => {
         Actions.main();
     }, 200);

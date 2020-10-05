@@ -1,7 +1,7 @@
 const colors = {
     background: '#f1f1f1',
     primary: '#383F4E',
-    white: '#f1f1f1',
+    white: '#ffffff',
     black: '#000000',
     lightGray: '#D3D3D3',
     blackOpacity: 'rgba(0,0,0,0.5)',
@@ -11,7 +11,8 @@ const colors = {
     success: '#558b2f',
     successDark: '#255d00',
     danger: '#c62828',
-    dangerDark: '#8e0000'
+    dangerDark: '#8e0000',
+    warning: '#fdd835'
 }
 
 export default colors;
