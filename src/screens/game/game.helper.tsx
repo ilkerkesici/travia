@@ -1,5 +1,5 @@
 import { colors, images, strings as locale } from "assets";
-import { EStatus, IQuestion } from "enums";
+import { EDifficulty, EStatus, IQuestion } from "enums";
 import { Utils } from "helpers";
 
 /**
@@ -69,5 +69,22 @@ export const determineStatusmodalData = (status: EStatus) => {
                 textColors: colors.white,
                 buttonColor: colors.successDark
             }
+    }
+}
+
+/**
+ * Determine score of the question
+ * @param difficulty is difficulty of question
+ */
+export const determineScoreOfTheQuestion = (difficulty: string): number => {
+    switch(difficulty){
+        case EDifficulty.Easy:
+                return 50;
+        case EDifficulty.Medium:
+            return 75;
+        case EDifficulty.Hard:
+            return 100;
+        default:
+            return 0
     }
 }
