@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { LocalStorageHelper } from 'helpers';
 import { ScreenContainer } from 'components';
 import styles from './ScoreBoard.styles';
 import { ISavedScore } from 'enums';
 import { ListItem } from './components';
+import { strings as locale } from 'assets';
 
 interface IScoreBoardState {
     scores: ISavedScore[] | null,
@@ -23,6 +24,8 @@ const ScoreBoard = () => {
         loading: true
     });
 
+    const strings = locale.scoreBoard;
+
     /**
      * Get scores from storage
      */
@@ -35,10 +38,17 @@ const ScoreBoard = () => {
 
     const renderItem = useCallback((props: IRenderItem) => <ListItem data={props.item} />, []);
     const keyExtractor = useCallback((item: ISavedScore, index: number) => item.score.toString() + '-' +index.toString(), []);
+    const renderSeperator = useCallback(() => <View style={styles.seperator} />, []);
+    const renderEmpty = useCallback(() => (
+        <View style={styles.emtyWrapper}>
+            <Text style={styles.emptyText}>{strings.empty}</Text>
+        </View>
+    ), [])
 
     useEffect(() => {
         getScores();
-    }, [])
+    }, []);
+    
     const { loading, scores } = state;
     return(
         <ScreenContainer>
@@ -48,6 +58,9 @@ const ScoreBoard = () => {
                 keyExtractor={keyExtractor}
                 refreshing={loading}
                 onRefresh={getScores}
+                ItemSeparatorComponent={renderSeperator}
+                ListEmptyComponent={renderEmpty}
+                style={styles.list}
             />
         </ScreenContainer>
     );

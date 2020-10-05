@@ -52,5 +52,6 @@ export enum EStatus {
 export interface ISavedScore {
     date: Date,
     score: number,
-    timespent: number
+    timespent: number,
+    difficulty: {key :EDifficulty, value: string}
 }

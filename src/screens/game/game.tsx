@@ -11,7 +11,7 @@ import { LocalStorageHelper } from 'helpers';
 
 interface IgameProps {
     questions: IQuestion[],
-    difficulty: EDifficulty
+    difficulty: {key : EDifficulty, value: string}
 }
 
 interface IGameState {

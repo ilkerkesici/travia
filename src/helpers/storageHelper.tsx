@@ -10,7 +10,7 @@ class StorageHelper {
      * @param score is score of the user
      * @param timespent is timespent (second)
      */
-    async saveScore(score: number, timespent: number, difficulty: EDifficulty){
+    async saveScore(score: number, timespent: number, difficulty: {key: EDifficulty, value: string}){
         const date = new Date();
         const addedItem = { date, score, timespent, difficulty };
         const scores = await this.getScores();
