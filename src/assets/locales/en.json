@@ -1,0 +1,36 @@
+{
+    "title": "English",
+    "main": {
+        "easy": "Easy",
+        "hard": "Hard",
+        "medium": "Medium",
+        "anyCategory": "Any Category",
+        "anyDifficulty": "Any Difficulty",
+        "welcome": "Welcome to Travia Game",
+        "start": "Start",
+        "goToScoreBoard" : "Go to score board"
+    },
+    "game": {
+        "timeout": "TIME'S UP",
+        "correct": "CORRECT",
+        "wrong": "FAIL",
+        "total" : "Total",
+        "timeoutDesc": "You are late, time's up.",
+        "wrongDesc": "You fail",
+        "correnctDesc" :"Great! You knew.",
+        "mainMenu": "MAIN MENU",
+        "next": "NEXT",
+        "finishDesc": "Congratulations! You win!",
+        "finish": "FINISH"
+    },
+    "info": {
+        "error": "Upsss! Some things went wrong!",
+        "info": "Your questions were ready!",
+        "start": "Start"
+    },
+    "scoreBoard": {
+        "score": "Score",
+        "spentTime": "Spent Time",
+        "empty": "There is no score. Let's go to play!"
+    }
+}
