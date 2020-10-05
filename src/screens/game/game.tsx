@@ -1,5 +1,5 @@
 
-import { EStatus, IQuestion } from 'enums';
+import { EDifficulty, EStatus, IQuestion } from 'enums';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { View, Text } from 'react-native';
 import { styles } from './game.styles';
@@ -10,7 +10,8 @@ import { Actions } from 'react-native-router-flux';
 import { LocalStorageHelper } from 'helpers';
 
 interface IgameProps {
-    questions: IQuestion[]
+    questions: IQuestion[],
+    difficulty: EDifficulty
 }
 
 interface IGameState {
@@ -34,6 +35,8 @@ export const Game = (props: IgameProps) => {
         currentQuestion: questions[0],
         currentShuffledAnswers: configureAnswers(questions[0])
     });
+
+    const { difficulty } = props;
 
     const timer = useRef<Timer | null>(null);
 
@@ -97,10 +100,10 @@ export const Game = (props: IgameProps) => {
             startTimer();
             return;
         }
-        LocalStorageHelper.saveScore(gameState.score, gameState.totalTimeSpent);
+        LocalStorageHelper.saveScore(gameState.score, gameState.totalTimeSpent, difficulty);
         Actions.main();
         // TODO Save latest data to asyncStorage
-    }, [setGameState, gameState, startTimer, questions]);
+    }, [setGameState, gameState, startTimer, questions, difficulty]);
 
     useEffect(() => startTimer(),[startTimer]) // did mount
 

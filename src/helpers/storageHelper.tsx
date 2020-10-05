@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage';
-import { ISavedScore } from 'enums';
+import { EDifficulty, ISavedScore } from 'enums';
 
 /**
  * Helper for local storage with AsyncStorage
@@ -10,9 +10,9 @@ class StorageHelper {
      * @param score is score of the user
      * @param timespent is timespent (second)
      */
-    async saveScore(score: number, timespent: number){
+    async saveScore(score: number, timespent: number, difficulty: EDifficulty){
         const date = new Date();
-        const addedItem = { date, score, timespent };
+        const addedItem = { date, score, timespent, difficulty };
         const scores = await this.getScores();
         if(scores){
             scores.push(addedItem);

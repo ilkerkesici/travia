@@ -58,7 +58,7 @@ export const Info = (props: IinfoProps) => {
     return (
         <ScreenContainer style={styles.container}>
             <Text style={styles.title}>{strings.info}</Text>
-            <BasicButton style={styles.button} title={strings.start} onPress={() => Actions.game({questions})} />
+            <BasicButton style={styles.button} title={strings.start} onPress={() => Actions.game({questions, difficulty})} />
         </ScreenContainer>
     );
 }
