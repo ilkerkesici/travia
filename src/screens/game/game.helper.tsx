@@ -16,7 +16,7 @@ export const configureAnswers = (question: IQuestion): string[] => {
 /**
  * determine the status modal image the given parameter
  */
-export const determineStatusmodalData= (status: EStatus) => {
+export const determineStatusmodalData = (status: EStatus) => {
     const strings = locale.game;
     switch (status) {
         case EStatus.Wrong:
@@ -48,6 +48,16 @@ export const determineStatusmodalData= (status: EStatus) => {
                 backgroundColor: colors.lightGray,
                 textColors: colors.black,
                 buttonColor: 'gray'
+            }
+        case EStatus.Finish:
+            return {
+                image: images.tick,
+                title: strings.finish,
+                desc: strings.finishDesc,
+                button: strings.mainMenu,
+                backgroundColor: colors.success,
+                textColors: colors.white,
+                buttonColor: colors.successDark
             }
         default:
             return {

@@ -58,6 +58,7 @@ const QuestionCard = (props: IQuestionCard) => {
     }, [onPressAnswer, extraStyles, answer, questionInfo])
 
     const keyExtractor = useCallback((item: string, index: number) => item, []);
+    console.log(questionInfo);
     return (
         <View>
             <View style={styles.questionCard}>

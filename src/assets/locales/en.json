@@ -18,7 +18,9 @@
         "wrongDesc": "You fail",
         "correnctDesc" :"Great! You knew.",
         "mainMenu": "MAIN MENU",
-        "next": "NEXT"
+        "next": "NEXT",
+        "finishDesc": "Congratulations! You win!",
+        "finish": "FINISH"
     },
     "info": {
         "error": "Upsss! Some things went wrong!",

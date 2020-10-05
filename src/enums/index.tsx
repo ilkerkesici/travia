@@ -42,5 +42,6 @@ export const ANY_CATEGORY_TYPE_ID = -1;
 export enum EStatus {
     Wrong = 'wrong',
     Success = 'success',
-    Timeout = 'timeout'
+    Timeout = 'timeout',
+    Finish = 'finish'
 }

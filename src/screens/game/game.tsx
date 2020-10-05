@@ -54,7 +54,7 @@ export const Game = (props: IgameProps) => {
             setGameState({
                 ...gameState, 
                 statusModalVisible: true, 
-                status: EStatus.Success, 
+                status: gameState.index + 1 === questions.length ? EStatus.Finish : EStatus.Success, 
                 totalTimeSpent: gameState.totalTimeSpent + timeSpent,
                 score: gameState.score + score
             });
@@ -62,7 +62,7 @@ export const Game = (props: IgameProps) => {
         }, 500);
         stopTimer();
         
-    }, [gameState, timer, resetTimer, stopTimer]);
+    }, [gameState, timer, resetTimer, stopTimer, questions]);
 
     const onWrongAnswer = useCallback(() => {
         const timeSpent = timer.current ? timer.current.getCurrentTime(): 0;
